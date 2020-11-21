@@ -6,7 +6,7 @@ export class StorageService {
     localStorage[key] = JSON.stringify(data);
   }
 
-  load(key: string): {} {
+  load(key: string): any {
     const item = localStorage[key] || 'null';
     return JSON.parse(item);
   }
