@@ -1,0 +1,22 @@
+.main-btn {
+  background-color: $blue;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 13px 17px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+
+  &:hover {
+    background-color: $lighter-blue;
+  }
+}
+
+.basic-input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid $lighter-blue;
+  margin: 5px 0;
+}

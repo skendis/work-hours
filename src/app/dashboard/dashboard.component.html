@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<h1>חישוב שעות</h1>
+<p>ברוכים הבאים למערכת ניהול שעות נוספות ומשימות</p>
+
+<h2>הזנת שעות:</h2>
+<form [formGroup]="form">
+  <div class="time-input-container">
+    <input class="basic-input" type="text" name="startTime" id="start-time" formControlName="startTime">
+    <span>-</span>
+    <input class="basic-input" type="text" name="endTime" id="end-time" formControlName="endTime">
+    <button type="button" class="main-btn" (click)="calcTime()">הוסף</button>
+    <span>הזמן שחושב הוא={{time}}</span>
+  </div>
+</form>

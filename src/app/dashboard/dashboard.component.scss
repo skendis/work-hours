@@ -1,0 +1,11 @@
+app-dashboard{
+  .time-input-container{
+    input{
+      width: 80px;
+      margin-left: 10px;
+      &:last-of-type{
+        margin-right: 10px;
+      }
+    }
+  }
+}

@@ -1,1 +1,26 @@
+/* Global scss imports */
+
+@import "reboot";
 @import "variables";
+@import "mixins";
+@import "devices";
+@import "layout";
+@import "typography";
+@import "buttons";
+/* Add Global scss styles here */
+
+html{
+  font-family: 'Assistant', Arial, sans-serif;
+  font-size: 16px;
+}
+
+a{
+  text-decoration-line: none;
+  color: $dark-blue;
+  border-bottom: 0px solid transparent;
+  transition: .3s ease-in-out;
+  &:hover{
+    color:$lighter-blue;
+    border-bottom: 1px solid $lighter-blue;
+  }
+}

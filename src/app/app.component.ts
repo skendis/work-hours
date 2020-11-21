@@ -1,4 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import {Component, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'work-hours';
+  constructor(private titleService: Title) {
+    this.setTitle('מערכת שעות');
+  }
+
+  setTitle(title: string): void {
+    this.titleService.setTitle(title);
+  }
 }

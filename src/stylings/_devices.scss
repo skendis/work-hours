@@ -1,15 +1,7 @@
-/*
-  @media #{media variable for example $mobile} {
-    scss contents
-  }
- */
-
 $mobile: "(max-width: 499px)";
 $tablet: "(min-width: 500px) and (max-width: 1000px)";
 $desktop: "(min-width: 1001px)";
 
-$mobile-margin:10px;
-$desktop-margin:100px;
 
 
 
