@@ -2,12 +2,19 @@
 <p>ברוכים הבאים למערכת ניהול שעות נוספות ומשימות</p>
 
 <h2>הזנת שעות:</h2>
-<form [formGroup]="form">
-  <div class="time-input-container">
-    <input class="basic-input" type="text" name="startTime" id="start-time" formControlName="startTime">
-    <span>-</span>
-    <input class="basic-input" type="text" name="endTime" id="end-time" formControlName="endTime">
-    <button type="button" class="main-btn" (click)="calcTime()">הוסף</button>
-    <span>הזמן שחושב הוא={{time}}</span>
+<form [formGroup]="form" autocomplete="off">
+  <div class="time-input-container" *ngFor="let hours of workHours?.controls; let i=index">
+    <ng-container [formGroup]="hours">
+      <input class="basic-input" type="text" name="startTime" id="start-time" formControlName="startTime">
+      <span>-</span>
+      <input class="basic-input" type="text" name="endTime" id="end-time" formControlName="endTime">
+      <button type="button" class="main-btn" (click)="calcTime(hours)">הוסף</button>
+    </ng-container>
   </div>
 </form>
+
+<h2>סה"כ שעות</h2>
+<span>{{totalHours}}:{{totalMinutes}}</span>
+
+<h2>חריגה</h2>
+<span>{{(workHours.controls.length * 9) - totalHours}}</span>

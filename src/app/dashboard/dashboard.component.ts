@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,15 +10,19 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class DashboardComponent implements OnInit {
 
   time;
-  form: FormGroup = this.fb.group({
-    startTime: ['09:00'],
-    endTime: ['18:00']
+  totalHours = 0;
+  totalMinutes = 0;
+  base = 0;
+  workHours = this.fb.array([]);
+  form = this.fb.group({
+    workHours: this.workHours
   });
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.addTime();
   }
 
 
@@ -36,14 +40,30 @@ export class DashboardComponent implements OnInit {
       hours = hours + 24;
     }
 
+    this.totalHours += hours;
+    this.totalMinutes += minutes;
+    if (this.totalMinutes >= 60) {
+      this.totalHours += 1;
+      this.totalMinutes -= 60;
+    }
     return (hours <= 9 ? '0' : '') + hours + ':' + (minutes <= 9 ? '0' : '') + minutes;
   }
 
 
-  calcTime(): void {
-    const startTime = this.form.get('startTime').value;
-    const endTime = this.form.get('endTime').value;
-    this.time = this.diff(startTime, endTime);
+  calcTime(formGroup: AbstractControl): void {
+    const startTime = formGroup.get('startTime').value;
+    const endTime = formGroup.get('endTime').value;
+    this.diff(startTime, endTime);
+
+    this.addTime();
+  }
+
+  addTime(): void {
+    const newTime = this.fb.group({
+      startTime: [''],
+      endTime: ['']
+    });
+    this.workHours.push(newTime);
   }
 
 }
