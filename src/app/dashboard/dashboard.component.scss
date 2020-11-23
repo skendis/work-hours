@@ -1,11 +1,18 @@
-app-dashboard{
-  .time-input-container{
-    input{
+app-dashboard {
+  .time-input-container {
+    input {
       width: 80px;
       margin-left: 10px;
-      &:last-of-type{
+
+      &:last-of-type {
         margin-right: 10px;
       }
+    }
+
+    input[type='date'] {
+      width: 158px;
+      border: none;
+      background: transparent;
     }
   }
 }
