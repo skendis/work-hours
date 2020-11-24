@@ -1,5 +1,10 @@
 app-dashboard {
+
   .time-input-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
     input {
       width: 80px;
       margin-left: 10px;
@@ -8,6 +13,11 @@ app-dashboard {
         margin-right: 10px;
       }
     }
+
+    .date {
+      width: 90px;
+    }
+
 
     input[type='date'] {
       width: 158px;

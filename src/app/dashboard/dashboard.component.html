@@ -5,16 +5,16 @@
 <form [formGroup]="form" autocomplete="off">
   <div class="time-input-container" *ngFor="let hours of workHours?.controls; let i=index">
     <ng-container [formGroup]="hours">
-      <input class="basic-input" type="date" name="shiftDate" id="shift-date" formControlName="shiftDate" >
+      <span class="date">{{hours.get('shiftDate').value | date}}</span>
       <input class="basic-input" type="text" name="startTime" id="start-time" formControlName="startTime">
       <span>-</span>
       <input class="basic-input" type="text" name="endTime" id="end-time" formControlName="endTime">
+      <button class="main-btn" type="button" (click)="duplicateDay(hours)">עוד אחד כזה</button>
     </ng-container>
   </div>
 </form>
-
+<button type="button" class="main-btn" (click)="countWorkHours()">חשב שעות</button>
 <h2>סה"כ שעות</h2>
+<h2>{{totalTime}}</h2>
 
-
-<h2>חריגה</h2>
 
